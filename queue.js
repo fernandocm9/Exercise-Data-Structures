@@ -27,7 +27,6 @@ class Queue{
 
 }
 
-// head-tail
 
 const testing = new Queue()
 testing.enqueue(1)

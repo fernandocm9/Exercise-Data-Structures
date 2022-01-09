@@ -43,30 +43,53 @@
 //     }
 // }
 
-let Stack = function(){
-    let obj = {head: 0, tail: 0}
-    Object.assign(obj, Stack.methods)
+// let Stack = function(){
+//     let obj = {head: 0, tail: 0}
+//     Object.assign(obj, Stack.methods)
+//     return obj
+// }
+
+// Stack.methods = {
+//     push: function(value){
+//         this[this.tail] = value;
+//         this.tail++    
+//     },
+//     pop: function(){
+//         let last = this[this.tail - 1]
+//         delete this[this.tail - 1]
+//         this.head++
+//         return last
+//     }
+// }
+
+// const firstTry = Stack()
+// firstTry.push(1)
+// firstTry.push(2)
+// firstTry.push(3)
+// firstTry.push(4)
+// console.log(firstTry.pop())
+// console.log(firstTry)
+// console.log(firstTry.size())
+
+let stack = function(obj){
+    obj.head = 0
+    obj.tail = 0
+    obj.push = function(value){
+        obj[obj.tail] = value
+        obj.tail++
+    }
+    obj.pop = function(){
+        let last = obj[obj.tail - 1]
+        delete obj[obj.tail - 1]
+        obj.head++
+        return last
+    }
     return obj
 }
 
-Stack.methods = {
-    push: function(value){
-        this[this.tail] = value;
-        this.tail++    
-    },
-    pop: function(){
-        let last = this[this.tail - 1]
-        delete this[this.tail - 1]
-        this.head++
-        return last
-    }
-}
-
-const firstTry = Stack()
-firstTry.push(1)
-firstTry.push(2)
-firstTry.push(3)
-firstTry.push(4)
-console.log(firstTry.pop())
-console.log(firstTry)
-// console.log(firstTry.size())
+const testing = stack({})
+testing.push(1)
+testing.push(2)
+testing.push(3)
+testing.pop()
+console.log(testing)
