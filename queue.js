@@ -1,3 +1,5 @@
+//---ES6
+
 class Queue{
     constructor(){
         this.queue = {}
