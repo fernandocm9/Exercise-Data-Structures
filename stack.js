@@ -18,8 +18,9 @@
 //     size(){
 //         return this.stack.length
 //     }
-
 // }
+
+//OR this
 
 // class Stack{
 //     constructor(){
@@ -89,27 +90,76 @@
 
 //---prototypal 
 
+// let Stack = function(){
+//     let obj = Object.create(stackMethods)
+//     obj.head = 0
+//     obj.tail = 0
+//     return obj
+// }
+
+//  var stackMethods = {
+//     push(value){
+//         this[this.tail] = value;
+//         this.tail++    
+//     },
+//     pop(){
+//         let last = this[this.tail - 1]
+//         delete this[this.tail - 1]
+//         this.head++
+//         return last
+//     }
+// }
+
+//OR this
+
+// let Stack = function(){
+//     let obj = Object.create(Stack.prototype)
+//     obj.head = 0
+//     obj.tail = 0
+//     return obj
+// }
+
+// Stack.prototype.push = function(value){
+//     this[this.tail] = value;
+//     this.tail++    
+// }
+
+// Stack.prototype.pop = function(){
+//     let last = this[this.tail - 1]
+//     delete this[this.tail - 1]
+//     this.head++
+//     return last
+// }
+
+// const firstTry = Stack()
+// firstTry.push(1)
+// firstTry.push(2)
+// firstTry.push(3)
+// firstTry.push(4)
+// console.log(firstTry.pop())
+// console.log(firstTry)
+// console.log(firstTry.size())
+
+//---pseudoclassical
+
 let Stack = function(){
-    let obj = Object.create(stackMethods)
-    obj.head = 0
-    obj.tail = 0
-    return obj
+    this.head = 0
+    this.tail = 0
 }
 
- var stackMethods = {
-    push(value){
-        this[this.tail] = value;
-        this.tail++    
-    },
-    pop(){
-        let last = this[this.tail - 1]
-        delete this[this.tail - 1]
-        this.head++
-        return last
-    }
+Stack.prototype.push = function(value){
+    this[this.tail] = value;
+    this.tail++    
 }
 
-const firstTry = Stack()
+Stack.prototype.pop = function(){
+    let last = this[this.tail - 1]
+    delete this[this.tail - 1]
+    this.head++
+    return last
+}
+
+const firstTry = new Stack() //uses the new keyword which tells the constructor to auto Object.create and return obj
 firstTry.push(1)
 firstTry.push(2)
 firstTry.push(3)
