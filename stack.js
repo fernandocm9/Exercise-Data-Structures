@@ -1,3 +1,5 @@
+//---ES6
+
 // class Stack{
 //     constructor(){
 //         this.stack = []    
@@ -43,6 +45,8 @@
 //     }
 // }
 
+//---functional classes
+
 // let Stack = function(){
 //     let obj = {head: 0, tail: 0}
 //     Object.assign(obj, Stack.methods)
@@ -70,6 +74,8 @@
 // console.log(firstTry.pop())
 // console.log(firstTry)
 // console.log(firstTry.size())
+
+//---decorators
 
 let stack = function(obj){
     obj.head = 0
