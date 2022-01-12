@@ -46,7 +46,7 @@
 //     }
 // }
 
-//---functional classes
+//---functional 
 
 // let Stack = function(){
 //     let obj = {head: 0, tail: 0}
